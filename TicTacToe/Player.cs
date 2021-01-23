@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace TicTacToe
+﻿namespace TicTacToe
 {
     public class Player
     {
-        public Position GetPosition()
+        public Position GetPosition(int position)
         {
-            var position = Convert.ToInt32(Console.ReadLine());
             var deziredCoordinate = PositionForNumber(position);
             return deziredCoordinate;
         }
