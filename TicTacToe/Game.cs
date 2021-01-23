@@ -23,12 +23,27 @@ namespace TicTacToe
 
         public void NextMove()
         {
-            var nextMove = _board.NextTurn == State.X
-                ? _x.GetPosition()
-                : _o.GetPosition();
-            if (!_board.SetState(nextMove, _board.NextTurn))
+            var userInput = Console.ReadLine();
+            var isNumeric = Int32.TryParse(userInput, out var position);
+            if (isNumeric)
             {
-                Console.WriteLine("That is not a legal move.");
+                if (position > 0 && position < 10)
+                {
+                    var nextMove = _board.NextTurn == State.X ? _x.GetPosition(position) : _o.GetPosition(position);
+                    if (!_board.SetState(nextMove, _board.NextTurn))
+                    {
+                        Console.WriteLine("That is not a legal move.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(
+                        "Please enter a number from 1 to 9 to specify desired position using numpad as representation of a grid.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Your entry was not a number!");
             }
         }
 

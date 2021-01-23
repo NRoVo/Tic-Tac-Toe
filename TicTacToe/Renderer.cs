@@ -20,11 +20,11 @@ namespace TicTacToe
                 symbols[row, column] = SymbolFor(_board.GetState(new Position(row, column)));
             }
 
-            Console.WriteLine($" {symbols[0, 0]} | {symbols[0, 1]} | {symbols[0, 2]} ");
+            Console.WriteLine($" {symbols[0, 0].ToString()} | {symbols[0, 1].ToString()} | {symbols[0, 2].ToString()} ");
             Console.WriteLine("---+---+---");
-            Console.WriteLine($" {symbols[1, 0]} | {symbols[1, 1]} | {symbols[1, 2]} ");
+            Console.WriteLine($" {symbols[1, 0].ToString()} | {symbols[1, 1].ToString()} | {symbols[1, 2].ToString()} ");
             Console.WriteLine("---+---+---");
-            Console.WriteLine($" {symbols[2, 0]} | {symbols[2, 1]} | {symbols[2, 2]} ");
+            Console.WriteLine($" {symbols[2, 0].ToString()} | {symbols[2, 1].ToString()} | {symbols[2, 2].ToString()} ");
         }
 
         private char SymbolFor(State state)
@@ -43,7 +43,7 @@ namespace TicTacToe
             {
                 case State.O:
                 case State.X:
-                    Console.WriteLine(SymbolFor(winner) + " Wins!");
+                    Console.WriteLine(SymbolFor(winner).ToString() + " Wins!");
                     break;
                 case State.Undecided:
                     Console.WriteLine("Draw!");
