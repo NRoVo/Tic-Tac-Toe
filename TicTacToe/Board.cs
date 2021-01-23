@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicTacToe
+﻿namespace TicTacToe
 {
     public class Board
     {
-        private State[,] state;
+        private readonly State[,] _state;
         public State NextTurn { get; private set; }
 
         public Board()
         {
-            state = new State[3, 3];
+            _state = new State[3, 3];
             NextTurn = State.X;
         }
 
         public State GetState(Position position)
         {
-            return state[position.Row, position.Column];
+            return _state[position.Row, position.Column];
         }
 
         public bool SetState(Position position, State newState)
@@ -29,26 +23,19 @@ namespace TicTacToe
                 return false;
             }
 
-            if (state[position.Row, position.Column] != State.Undecided)
+            if (_state[position.Row, position.Column] != State.Undecided)
             {
                 return false;
             }
 
-            state[position.Row, position.Column] = newState;
+            _state[position.Row, position.Column] = newState;
             SwitchNextTurn();
             return true;
         }
 
         private void SwitchNextTurn()
         {
-            if (NextTurn == State.X)
-            {
-                NextTurn = State.O;
-            }
-            else
-            {
-                NextTurn = State.X;
-            }
+            NextTurn = NextTurn == State.X ? State.O : State.X;
         }
     }
 }

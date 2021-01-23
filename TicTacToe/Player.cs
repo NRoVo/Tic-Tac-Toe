@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TicTacToe
 {
     public class Player
     {
-        public Position GetPosition(Board board)
+        public Position GetPosition()
         {
-            int position = Convert.ToInt32(Console.ReadLine());
-            Position deziredCoordinate = PositionForNumber(position);
+            var position = Convert.ToInt32(Console.ReadLine());
+            var deziredCoordinate = PositionForNumber(position);
             return deziredCoordinate;
         }
 
